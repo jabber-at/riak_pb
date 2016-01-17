@@ -1,0 +1,5 @@
+erlang-riak-protobuf (2.1.2.0-0.1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Mathias Ertl <mati@jabber.at>  Sun, 17 Jan 2016 20:09:11 +0100
