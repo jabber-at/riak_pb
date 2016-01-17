@@ -1,0 +1,12 @@
+--- a/rebar.config
++++ b/rebar.config
+@@ -1,9 +1,6 @@
+ %% -*- mode: erlang -*-
+ {erl_opts, [debug_info, warnings_as_errors, {platform_define, "^[0-9]+",
+                                              namespaced_types}]}.
+-{deps, [
+-        {protobuffs, "0.8.*", {git, "git://github.com/basho/erlang_protobuffs.git", {tag, "0.8.1p5"}}}
+-       ]}.
+ 
+ {xref_checks, [undefined_function_calls, undefined_functions,
+                deprecated_function_calls, deprecated_functions,
