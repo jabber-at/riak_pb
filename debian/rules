@@ -5,5 +5,21 @@ CFLAGS += -fsigned-char
 CXXFLAGS:= $(shell dpkg-buildflags --get CXXFLAGS) $(CPPFLAGS)
 CXXFLAGS += -fsigned-char
 
+include /usr/share/dpkg/pkg-info.mk
+DESTDIR=$(CURDIR)/debian/erlang-riak-protobuf
+
 %:
 	dh $@ --buildsystem=rebar --with rebar
+
+override_dh_auto_install:
+	dh_auto_install
+	ls $(CURDIR)/debian
+	for file in include/*.hrl ; do \
+		fname=$$(basename $${file}) ; \
+		subdir=$$(basename $$(dirname $${file})) ; \
+		if [ ! -f $(DESTDIR)/usr/lib/erlang/lib/riak_protobuf-$(DEB_VERSION_UPSTREAM)/$${subdir}/$${fname} ] ; then \
+			install -m 755 -d $(DESTDIR)/usr/lib/erlang/lib/riak_protobuf-$(DEB_VERSION_UPSTREAM)/$${subdir} ; \
+			install -m 644 $${file} \
+			$(DESTDIR)/usr/lib/erlang/lib/riak_protobuf-$(DEB_VERSION_UPSTREAM)/$${subdir} ; \
+		fi ; \
+	done
