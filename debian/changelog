@@ -1,3 +1,9 @@
+erlang-riak-protobuf (2.1.4.2-0.1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mathias Ertl <mati@jabber.at>  Sun, 29 Jan 2017 22:17:58 +0100
+
 erlang-riak-protobuf (2.1.2.0-0.2) unstable; urgency=low
 
   * Install include/*.hrl files.
